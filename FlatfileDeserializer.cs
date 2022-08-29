@@ -41,7 +41,7 @@ public class FlatfileDeserializer
 
     public List<Person> DeserializeFlatfile(string filePath)
     {
-        var rowIndexType = string.Empty;
+        var flatFileRowType = string.Empty;
         var colIndexForType = 0;
         var rowIndex = 1;
         foreach (var entity in System.IO.File.ReadLines(filePath))
@@ -50,12 +50,12 @@ public class FlatfileDeserializer
             var skipRow = false;
             for (int columnIndex = 0; (!skipRow && columnIndex < entityValues.Length); columnIndex++)
             {
-                rowIndexType = entityValues[colIndexForType];
+                flatFileRowType = entityValues[colIndexForType];
                 var columnCount = entityValues.Length;
                 var isFirstColumn = columnIndex == 0;
-                switch (rowIndexType)
+                switch (flatFileRowType)
                 {
-                    case FlatfileTypes.PERSON:
+                    case FlatfileRowTypes.PERSON:
                         if (columnCount != EXPECTED_COLUMNS_PERSON) {
                             _errorLogs.Add($"Unexpected number of columns for entity at index {rowIndex}, expected 3: {entity}");
                             skipRow = true;
@@ -76,7 +76,7 @@ public class FlatfileDeserializer
                             }
                         }
                         break;
-                    case FlatfileTypes.FAMILY_MEMBER:
+                    case FlatfileRowTypes.FAMILY_MEMBER:
                         if (columnCount != EXPECTED_COLUMNS_FAMILYMEMBER) {
                             _errorLogs.Add($"Unexpected number of columns for entity at index {rowIndex}, expected 3: {entity}");
                             skipRow = true;
@@ -97,7 +97,7 @@ public class FlatfileDeserializer
                             }
                         }
                         break;
-                    case FlatfileTypes.TELEPHONE:
+                    case FlatfileRowTypes.TELEPHONE:
                         if (columnCount != EXPECTED_COLUMNS_TELEPHONE) {
                             _errorLogs.Add($"Unexpected number of columns for entity at index {rowIndex}, expected 3: {entity}");
                             skipRow = true;
@@ -118,7 +118,7 @@ public class FlatfileDeserializer
                             }
                         }
                         break;
-                    case FlatfileTypes.ADDRESS:
+                    case FlatfileRowTypes.ADDRESS:
                         if (columnCount != EXPECTED_COLUMNS_ADDRESS) {
                             _errorLogs.Add($"Unexpected number of columns for entity at index {rowIndex}, expected 3: {entity}");
                             skipRow = true;

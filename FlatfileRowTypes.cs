@@ -1,5 +1,5 @@
 namespace Softhouse.SomeSpecificSerializer;
-public static class FlatfileTypes
+public static class FlatfileRowTypes
 {
     public const string PERSON = "P";
     public const string FAMILY_MEMBER = "F";

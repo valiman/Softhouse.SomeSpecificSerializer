@@ -1,0 +1,15 @@
+P|Parent 33
+P|Parent 1|Last name
+T|1234-123456789|01-101001
+A|Streetname 3A|City A|10001
+F|Child 1|1977
+A|Streetname 4A|City A|10002
+F|Child 2|1979
+T|0768-101802|08-101802
+P|Parent 2|Last name
+A|1600 Pennsylvania Avenue|Washington, D.C
+F|Child 3|1979
+T|1111-22222|33-1111111
+A|Streetname 5A|City C|10033
+P|Parent 3|Last name
+P|Parent 4|Last name
